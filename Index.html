@@ -127,6 +127,153 @@
             margin-bottom: 2rem;
             font-size: 2.5rem;
         }
+        .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-item {
+    background-color: var(--bmw-white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+/* General Services Animation */
+.service-icon .wrench {
+    transform-origin: center;
+    animation: rotate 3s infinite linear;
+}
+.service-icon .gear {
+    transform-origin: center;
+    animation: rotate-reverse 10s infinite linear;
+}
+
+/* Suspension Faults Animation */
+.service-icon .spring {
+    animation: bounce 2s infinite ease-in-out;
+}
+.service-icon .wheel {
+    animation: shake 0.5s infinite linear;
+}
+
+/* Oil & Brake Checks Animation */
+.service-icon .oil-drop {
+    animation: drip 2s infinite ease-in-out;
+}
+.service-icon .brake-disc {
+    transform-origin: center;
+    animation: rotate 3s infinite linear;
+}
+
+/* Breakdown Service Animation */
+.service-icon .car-body {
+    animation: bounce 2s infinite ease-in-out;
+}
+.service-icon .wheel1, .service-icon .wheel2 {
+    animation: rotate 1s infinite linear;
+}
+.service-icon .lightning {
+    opacity: 0;
+    animation: flash 2s infinite;
+}
+
+/* Specialist Equipment Animation */
+.service-icon .graph {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw 3s infinite linear;
+}
+.service-icon .dot {
+    opacity: 0;
+    animation: appear 3s infinite linear;
+}
+
+/* Battery Change Animation */
+.service-icon .charge {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw 2s infinite linear;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-1px); }
+    75% { transform: translateX(1px); }
+}
+
+@keyframes drip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+@keyframes flash {
+    0%, 50%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+}
+
+@keyframes draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes appear {
+    0%, 25% { opacity: 0; }
+    50%, 100% { opacity: 1; }
+}
+
+.service-item h3 {
+    color: var(--bmw-blue);
+    margin-bottom: 1rem;
+}
+
+.service-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-item li {
+    margin-bottom: 0.5rem;
+}
+
+.service-item p {
+    font-size: 0.9rem;
+    color: var(--bmw-gray);
+}
 
         .cta-button {
             display: inline-block;
@@ -191,11 +338,186 @@
             background: linear-gradient(to right, #0066B1 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #FF0000 66.66%);
             margin-top: 2rem;
         }
+        .logo-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  text-align: center; /* Add this to center the logo and title */
+}
+
+.logo {
+  display: block; /* Add this to make the logo a block element */
+  margin: 0 auto; /* Add this to center the logo */
+  animation: pulsate 2s infinite;
+}
+
+.header h1 {
+  margin-left: 0; /* Remove the left margin */
+  text-align: center; /* Center the title */
+  display: block; /* Make the title a block element */
+}
+.hide-logo {
+  opacity: 0;
+  pointer-events: none;
+}
+.picture-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 4rem 2rem;
+            background-color: var(--bmw-white);
+        }
+
+        .card {
+            position: relative;
+            width: calc(33.33% - 2rem);
+            height: 200px;
+            margin: 1rem;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 102, 177, 0.8);
+            color: var(--bmw-white);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .card-content {
+            opacity: 1;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+        }
+        /* Updated and new styles for improved mobile responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin-right: 1rem;
+    }
+
+    .logo-container {
+        position: static;
+        transform: none;
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+        width: 120px;
+        height: auto;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .contact-form {
+        padding: 0 1rem;
+    }
+}
+
+/* Adjust the video overlay for better visibility on mobile */
+@media (max-width: 768px) {
+    .overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* Ensure content doesn't overflow on smaller screens */
+.services-grid, .picture-cards {
+    overflow-x: hidden;
+}
+
+/* Adjust service icons for better display on mobile */
+@media (max-width: 768px) {
+    .service-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Aris Auto Works</h1>
+        <div class="logo-container">
+            <img src="Aris Logo.png" alt="Aris Auto Works Logo" class="logo" style="width: 190px; height: auto;">
+            <h1>Aris Auto Works</h1>
+        </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -204,6 +526,7 @@
             </ul>
         </nav>
     </header>
+    
 
     <div class="video-container">
         <video autoplay muted loop id="bgVideo">
@@ -219,17 +542,111 @@
         </div>
     </div>
 
+
+
+    <section class="picture-cards">
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/7c/80/d5/7c80d5d674075d829521c13d23d0611e.jpg" alt="Luxury Car Service">
+            <div class="card-content">
+                <h3>Luxury Car Service</h3>
+                <p>Experience top-tier maintenance for your premium vehicle.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/da/37/ee/da37ee1624c8ec40e84d9ad5047618de.jpg" alt="Performance Upgrades">
+            <div class="card-content">
+                <h3>Performance Upgrades</h3>
+                <p>Enhance your vehicle's performance with our expert tuning.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/b8/12/66/b81266335ec9ebd4ea568192506539dd.jpg" alt="Detailing Services">
+            <div class="card-content">
+                <h3>Detailing Services</h3>
+                <p>Restore your car's showroom shine with our premium detailing.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="section">
         <h2>Our Services</h2>
         <p>At Aris Auto Works, we offer a comprehensive range of services tailored to luxury vehicles, ensuring peak performance and longevity. Our expert technicians use state-of-the-art equipment to deliver precision care for your prized automobile.</p>
-        <!-- Add more service details here -->
-    </section>
-
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>With a passion for excellence and a deep understanding of luxury automobiles, Aris Auto Works provides unparalleled service for your premium vehicle. Our team of certified technicians combines expertise with cutting-edge technology to ensure your car receives the care it deserves.</p>
-        <!-- Add more about us content here -->
-    </section>
+        
+        
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path class="wrench" d="M35,50 L65,50 M50,35 L50,65" stroke="#0066B1" stroke-width="8" stroke-linecap="round"/>
+                        <circle class="gear" cx="50" cy="50" r="40" fill="none" stroke="#0066B1" stroke-width="8"/>
+                        <circle class="gear-center" cx="50" cy="50" r="5" fill="#0066B1"/>
+                    </svg>
+                    <h3>General Services</h3>
+                    <ul>
+                        <li>Major & Minor Services</li>
+                        <li>Lube Inspection 1 & 2</li>
+                        <li>Mercedes ignition locks</li>
+                        <li>A-Service & B-Service</li>
+                        <li>Clutch repairs</li>
+                        <li>Brakes</li>
+                        <li>Cam belt services</li>
+                        <li>& More</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path class="spring" d="M30,20 Q50,40 30,60 Q50,80 70,60" fill="none" stroke="#0066B1" stroke-width="8" stroke-linecap="round"/>
+                        <circle class="wheel" cx="50" cy="80" r="15" fill="none" stroke="#0066B1" stroke-width="8"/>
+                    </svg>
+                    <h3>Suspension Faults</h3>
+                    <ul>
+                        <li>Tyre wear</li>
+                        <li>Vibrations</li>
+                        <li>Brake shudder</li>
+                        <li>Noises</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path class="oil-drop" d="M50,20 L60,40 A15,15 0 0 1 40,40 Z" fill="#0066B1"/>
+                        <path class="brake-disc" d="M30,60 A20,20 0 0 1 70,60 A20,20 0 0 1 30,60" fill="none" stroke="#0066B1" stroke-width="8"/>
+                    </svg>
+                    <h3>Oil & Brake Checks</h3>
+                    <p>When you are looking for the quick pop-in and out minor service with the peace of mind of knowing your car is still running in tip-top condition.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path class="car-body" d="M10,60 L30,60 L40,40 L60,40 L70,60 L90,60" fill="none" stroke="#0066B1" stroke-width="8"/>
+                        <circle class="wheel1" cx="30" cy="70" r="10" fill="#0066B1"/>
+                        <circle class="wheel2" cx="70" cy="70" r="10" fill="#0066B1"/>
+                        <path class="lightning" d="M50,20 L60,40 L40,40 L50,60" fill="none" stroke="#0066B1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Breakdown Service</h3>
+                    <p>We're approved with all the major insurance breakdown providers.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="screen" x="20" y="20" width="60" height="40" rx="5" fill="none" stroke="#0066B1" stroke-width="8"/>
+                        <path class="graph" d="M30,50 L45,35 L60,45 L75,30" fill="none" stroke="#0066B1" stroke-width="4"/>
+                        <circle class="dot" cx="30" cy="50" r="3" fill="#0066B1"/>
+                        <circle class="dot" cx="45" cy="35" r="3" fill="#0066B1"/>
+                        <circle class="dot" cx="60" cy="45" r="3" fill="#0066B1"/>
+                        <circle class="dot" cx="75" cy="30" r="3" fill="#0066B1"/>
+                    </svg>
+                    <h3>Specialist Equipment</h3>
+                    <p>Sometimes your vehicle doesn't play fair. We've got the experience and diagnostic equipment to figure out what's wrong.</p>
+                </div>
+                <div class="service-item">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="battery" x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#0066B1" stroke-width="8"/>
+                        <rect class="battery-top" x="40" y="20" width="20" height="10" fill="#0066B1"/>
+                        <path class="charge" d="M50,40 L40,60 L60,60 L50,80" fill="none" stroke="#0066B1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Battery Change</h3>
+                    <p>It's a fact of life, batteries will come & go. We stock a wide range to suit your car.</p>
+                </div>
+            </div>
+        </section>
 
     <section id="contact" class="section">
         <h2>Contact Us</h2>
@@ -247,35 +664,43 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.querySelector('.header');
-            const sections = document.querySelectorAll('.section');
+       document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header');
+    const sections = document.querySelectorAll('.section');
+    const logoContainer = document.querySelector('.logo-container');
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.style.backgroundColor = 'var(--bmw-blue)';
-                } else {
-                    header.style.backgroundColor = 'rgba(0, 102, 177, 0.9)';
-                }
-            });
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'var(--bmw-blue)';
+            if (window.innerWidth > 768) {
+                logoContainer.classList.add('hide-logo');
+            }
+        } else {
+            header.style.backgroundColor = 'rgba(0, 102, 177, 0.9)';
+            logoContainer.classList.remove('hide-logo');
+        }
+    }
 
-            const options = {
-                root: null,
-                threshold: 0.1,
-            };
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, options);
+    const options = {
+        root: null,
+        threshold: 0.1,
+    };
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
     </script>
 </body>
 </html>
