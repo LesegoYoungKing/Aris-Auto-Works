@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aris Auto Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bmw-blue: #0066B1;
+            --bmw-light-blue: #4c94d1;
+            --bmw-white: #FFFFFF;
+            --bmw-gray: #666666;
+            --bmw-dark-gray: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--bmw-dark-gray);
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: rgba(0, 102, 177, 0.9);
+            color: var(--bmw-white);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            margin-left: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-right: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--bmw-white);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--bmw-light-blue);
+        }
+
+        .video-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bgVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--bmw-white);
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--bmw-blue);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--bmw-blue);
+            color: var(--bmw-white);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--bmw-light-blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--bmw-gray);
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-form button {
+            background-color: var(--bmw-blue);
+            color: var(--bmw-white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--bmw-light-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--bmw-dark-gray);
+            color: var(--bmw-white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .bmw-stripes {
+            height: 5px;
+            background: linear-gradient(to right, #0066B1 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #FF0000 66.66%);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Aris Auto Works</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="video-container">
+        <video autoplay muted loop id="bgVideo">
+            <source src="https://videos.pexels.com/video-files/7700719/7700719-hd_1920_1080_24fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <div class="hero-content">
+                <h2>Precision in Motion</h2>
+                <p>Experience unparalleled service for your luxury vehicle</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <p>At Aris Auto Works, we offer a comprehensive range of services tailored to luxury vehicles, ensuring peak performance and longevity. Our expert technicians use state-of-the-art equipment to deliver precision care for your prized automobile.</p>
+        <!-- Add more service details here -->
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>With a passion for excellence and a deep understanding of luxury automobiles, Aris Auto Works provides unparalleled service for your premium vehicle. Our team of certified technicians combines expertise with cutting-edge technology to ensure your car receives the care it deserves.</p>
+        <!-- Add more about us content here -->
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Aris Auto Works. All rights reserved.</p>
+        <div class="bmw-stripes"></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.header');
+            const sections = document.querySelectorAll('.section');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'var(--bmw-blue)';
+                } else {
+                    header.style.backgroundColor = 'rgba(0, 102, 177, 0.9)';
+                }
+            });
+
+            const options = {
+                root: null,
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
